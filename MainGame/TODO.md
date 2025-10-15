@@ -1,0 +1,4 @@
+- Add pygame.mixer.init() after pygame.init()
+- Load dead_sound and music loop.wav
+- In main(), after player = Player(), start looping music
+- When game_over = True, stop music and play dead.wav

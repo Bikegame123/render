@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Leaderboard</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #1a1a1a; color: #f0f0f0; margin: 0; padding: 2em; }
+        h1 { text-align: center; color: #ffa500; }
+        table { width: 60%; margin: 2em auto; border-collapse: collapse; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        th, td { border: 1px solid #333; padding: 12px; text-align: left; }
+        th { background-color: #ffa500; color: #1a1a1a; text-transform: uppercase; }
+        tr:nth-child(even) { background-color: #2a2a2a; }
+        tr:hover { background-color: #444; }
+        td:first-child { font-weight: bold; color: #ffa500; }
+    </style>
+</head>
+<body>
+    <h1>🏆 Game Leaderboard 🏆</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in scores %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ entry['Username'] }}</td>
+                <td>{{ entry['Score'] }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3" style="text-align:center;">No scores yet!</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
